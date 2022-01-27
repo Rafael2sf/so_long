@@ -42,7 +42,13 @@ CF		=		-g -Wall -Werror -Wextra
 
 ################### FILES ###############
 
-SRCS_	=		map.c
+SRCS_	=		\
+				map.c \
+				draw.c \
+				img.c \
+				utils.c \
+				hooks.c \
+				move.c
 
 SRCS	=		$(addprefix $(_SRC), $(SRCS_))
 OBJS	=		$(patsubst $(_SRC)%.c,$(_OBJ)%.o,$(SRCS))

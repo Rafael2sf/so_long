@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:24:41 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/26 16:59:57 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:23:29 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ static void sl_map_set(char **map, int *width, int *height)
 	y = 0;
 	while (map[y])
 		y++;
-	*width = ft_strlen(map[0]) - 1;
-	*height = y;
+	(*width) = ft_strlen(map[0]) - 1;
+	(*height) = y;
 }
