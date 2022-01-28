@@ -18,21 +18,24 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <string.h>
 
-# define SL_TILE_WIDTH 50
-# define SL_TILE_HEIGHT 50
+/* Realloc multiplier for map reading */
+# define SL_RLOC_M 5
 
-typedef	struct s_map
+typedef unsigned int	uint;
+
+/* Information about map */
+typedef struct s_map
 {
 	char	**data;
-	int		width;
-	int		height;
-	int		p_count;
-	int		c_count;
-	int		e_count;
+	uint	width;
+	uint	height;
+	uint	items;
 }			t_map;
 
-typedef struct	s_img
+/* Information for mlx_image */
+typedef struct s_img
 {
 	void	*ptr;
 	int		width;
@@ -43,25 +46,32 @@ typedef struct	s_img
 	int		endian;
 }			t_img;
 
+/* mlx variables */
 typedef struct s_mlx
 {
 	void	*ptr;
 	void	*win;
 }			t_mlx;
 
-typedef struct s_vars
+/* Player variables */
+typedef struct s_ply
 {
-	int		steps;
-	int		inv;
-}			t_vars;
+	uint	pos_x;
+	uint	pos_y;
+	uint	steps;
+	uint	items;
+}			t_ply;
 
-typedef	struct s_app
+/* All data for app */
+typedef struct s_app
 {
 	t_mlx	mlx;
 	t_map	map;
-	t_vars	vars;
+	t_ply	ply;
+	t_img	*tts;
 }			t_app;
 
+/* Keys */
 enum
 {
 	KEY_ESC = 53,
@@ -71,21 +81,46 @@ enum
 	KEY_D = 2
 };
 
-void	sl_draw_pixel(t_img *img, int x, int y, int color);
-t_img	sl_new_image(void *mlx, char *path);
+/* Tile textures */
+# define SL_TT_WIDTH 50
+# define SL_TT_HEIGHT 50
+# define SL_TT_COUNT 5
 
-char	**sl_read_map(char *path, int *width, int *height);
-int		sl_verify_map(char **map, int *e_count, int *p_count, int *c_count);
-void	sl_print_map(const char **map);
-void	sl_draw_map(t_app app);
-void	sl_free_map(void *ptr);
+enum
+{
+	SL_TT_WALL,
+	SL_TT_FLOOR,
+	SL_TT_PLAYER,
+	SL_TT_ITEM,
+	SL_TT_EXIT
+};
 
-int		sl_hooks(int keycode, t_app *app);
-int		sl_move_up(t_app *app);
-int		sl_move_left(t_app *app);
-int		sl_move_down(t_app *app);
-int		sl_move_right(t_app *app);
+/* Reads map from a file */
+char		**sl_read_map(int fd);
+/* Verify if map is valid */
+void		sl_parse_map(t_app *app);
+/* Free the map */
+void		sl_free_map(void *ptr);
+/* Exit program clearing memory */
+void		sl_exitm(int code, char *error, t_app *app);
+/* New image form path */
+t_img		sl_new_image(void *mlx, char *path);
+/* Loads in the textures */
+int			sl_parse_textures(t_app *app);
+/* List of textures is cleared */
+void		sl_destroy_tt(t_app *app);
+/* Set hooks */
+int			sl_hooks(int keycode, t_app *app);
+/* Draw map */
+void		sl_drawp_map(t_app *app);
+/* if pressed moving key */
+int			sl_ismove(int key);
+/* Player moves */
+void		sl_move(t_app *app, int keycode);
 
-int		sl_ismove(int key);
+/* ... */
+void		sl_show_stats(t_app *app);
+/* Prints map to stdout */
+void		sl_print_map(const char **map);
 
 #endif

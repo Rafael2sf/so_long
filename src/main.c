@@ -6,36 +6,64 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/27 17:22:55 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:07:28 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl/libsl.h"
 
-void	sl_init_vars(t_app *app)
-{
-	(app->vars.steps) = 0;
-	(app->vars.inv) = 0;
-	sl_verify_map((char **)app->map.data,
-				&app->map.e_count, &app->map.p_count, &app->map.c_count);
-	printf("%d %d %d\n", app->map.e_count, app->map.p_count, app->map.c_count);
-}
+static int	sl_verify_params(int argc, char **argv);
+static void	sl_init_app(t_app *app, int fd);
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_app	app;
+	int		fd;
 
-	if (argc != 2)
-		return (1);
-	app.map.data = sl_read_map(argv[1], &app.map.width, &app.map.height);
-	if (app.map.data == NULL)
-		return (2);
-	sl_init_vars(&app);
-	app.mlx.ptr = mlx_init();
-	app.mlx.win = mlx_new_window(app.mlx.ptr, app.map.width * SL_TILE_WIDTH,
-								app.map.height * SL_TILE_HEIGHT, "so_long");
-	sl_draw_map(app);
+	fd = sl_verify_params(argc, argv);
+	sl_init_app(&app, fd);
+	close(fd);
+	sl_show_stats(&app);
 	mlx_key_hook(app.mlx.win, sl_hooks, &app);
+	sl_drawp_map(&app);
 	mlx_loop(app.mlx.ptr);
 	return (0);
+}
+
+static int	sl_verify_params(int argc, char **argv)
+{
+	int		fd;
+
+	if (argc != 2)
+	{
+		ft_putstr(STDERR_FILENO, "Error\nMissing map file.\n");
+		exit(1);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr(STDERR_FILENO, "Error\n");
+		perror(argv[1]);
+		exit(1);
+	}
+	return (fd);
+}
+
+static void	sl_init_app(t_app *app, int fd)
+{
+	(app->tts) = NULL;
+	(app->map.data) = NULL;
+	(app->mlx.ptr) = mlx_init();
+	if ((app->mlx.ptr) == NULL)
+		sl_exitm(3, "Mlx library error\n", app);
+	(app->map.data) = sl_read_map(fd);
+	(app->map.items) = 0;
+	(app->ply.items) = 0;
+	(app->ply.steps) = 0;
+	sl_parse_map(app);
+	sl_parse_textures(app);
+	(app->mlx.win) = mlx_new_window(app->mlx.ptr, SL_TT_WIDTH * app->map.width,
+			SL_TT_HEIGHT * app->map.height, "so_long");
+	if ((app->mlx.win) == NULL)
+		sl_exitm(3, "Mlx library error\n", app);
 }

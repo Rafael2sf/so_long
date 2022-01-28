@@ -6,50 +6,42 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:04:56 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/27 17:16:16 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:11:06 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-void	sl_draw_pixel(t_img *img, int x, int y, int color)
+void	sl_exitm(int code, char *error, t_app *app)
 {
-	char	*dst;
-
-	dst = img->pixels + (y * img->line_size + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
-int		sl_ismove(int key)
-{
-	return ((key == 13 || key == 0 || key == 1 || key == 2));
-}
-
-int		sl_verify_map(char **map, int *e_count, int *p_count, int *c_count)
-{
-	int	x;
-	int	y;
-
-	(*p_count) = 0;
-	(*c_count) = 0;
-	(*e_count) = 0;
-	y = 0;
-	while (map[y])
+	if (app)
 	{
-		x = 0;
-		while (map[y][x] != '\n')
-		{
-			if (map[y][x] == 'P')
-				(*p_count) += 1;
-			else if (map[y][x] == 'C')
-				(*c_count) += 1;
-			else if (map[y][x] == 'E')
-				(*e_count) += 1;
-			else if (map[y][x] != '0' && map[y][x] != '1')
-				return (0);
-			x++;
-		}
-		y++;
+		if (app->map.data)
+			sl_free_map(app->map.data);
+		if (app->tts)
+			sl_destroy_tt(app);
+		if (app->mlx.win)
+			mlx_destroy_window(app->mlx.ptr, app->mlx.win);
 	}
-	return (1);
+	if (code != 0)
+	{
+		ft_putstr(STDERR_FILENO, "Error\n");
+		ft_putstr(STDERR_FILENO, error);
+	}
+	exit(code);
+}
+
+t_img	sl_new_image(void *mlx, char *path)
+{
+	t_img	img;
+
+	img.ptr = mlx_xpm_file_to_image(mlx, path, &img.width, &img.height);
+	img.pixels = mlx_get_data_addr(img.ptr, &img.bits_per_pixel,
+			&img.line_size, &img.endian);
+	return (img);
+}
+
+int	sl_ismove(int key)
+{
+	return ((key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D));
 }
