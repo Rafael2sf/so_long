@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/28 18:07:28 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/28 18:16:26 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	fd = sl_verify_params(argc, argv);
 	sl_init_app(&app, fd);
 	close(fd);
-	sl_show_stats(&app);
 	mlx_key_hook(app.mlx.win, sl_hooks, &app);
 	sl_drawp_map(&app);
 	mlx_loop(app.mlx.ptr);
