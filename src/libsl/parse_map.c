@@ -6,20 +6,23 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:07:39 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/28 18:10:17 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:37:03 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-static void	sl_check_tile(t_app *app, uint x, uint y, int *has_exit);
-static void	sl_check_format(t_app *app);
+static void
+	sl_check_tile(t_app *app, unsigned int x, unsigned int y, int *has_exit);
+static void
+	sl_check_format(t_app *app);
 
-void	sl_parse_map(t_app *app)
+void
+	sl_parse_map(t_app *app)
 {
-	uint	y;
-	uint	x;
-	int		has_exit;
+	unsigned int	y;
+	unsigned int	x;
+	int				has_exit;
 
 	y = 0;
 	has_exit = 0;
@@ -42,11 +45,12 @@ void	sl_parse_map(t_app *app)
 		sl_exitm(2, "Map does not contain collectables\n", app);
 }
 
-static void	sl_check_format(t_app *app)
+static void
+	sl_check_format(t_app *app)
 {
-	uint	y;
-	uint	len;
-	uint	len2;
+	unsigned int	y;
+	unsigned int	len;
+	unsigned int	len2;
 
 	len = ft_strlen(app->map.data[0]);
 	if (app->map.data[0][len - 1] == '\n')
@@ -65,7 +69,8 @@ static void	sl_check_format(t_app *app)
 	(app->map.height) = y;
 }
 
-static void	sl_check_tile(t_app *app, uint x, uint y, int *has_exit)
+static void
+	sl_check_tile(t_app *app, unsigned int x, unsigned int y, int *has_exit)
 {
 	if (((y == 0 || y == app->map.height - 1) && app->map.data[y][x] != '1')
 		|| ((x == 0 || x == app->map.width - 1) && app->map.data[y][x] != '1'))

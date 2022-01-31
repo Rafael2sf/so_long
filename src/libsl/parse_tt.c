@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:39:17 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/28 18:12:14 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:32:34 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	sl_parse_textures(t_app *app)
 {
+	int	i;
+
 	(app->tts) = malloc(sizeof(t_img) * SL_TT_COUNT);
 	if (!(app->tts))
 		sl_exitm(3, strerror(errno), app);
@@ -27,6 +29,13 @@ int	sl_parse_textures(t_app *app)
 			"./content/textures/i.xpm");
 	app->tts[SL_TT_EXIT] = sl_new_image(app->mlx.ptr,
 			"./content/textures/e.xpm");
+	i = 0;
+	while (i < SL_TT_COUNT)
+	{
+		if ((app->tts[i].ptr) == NULL)
+			sl_exitm(4, "Failed to load textures\n", app);
+		i++;
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:04:56 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/28 18:11:06 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:47:51 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ t_img	sl_new_image(void *mlx, char *path)
 
 int	sl_ismove(int key)
 {
-	return ((key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D));
+	return (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D);
 }

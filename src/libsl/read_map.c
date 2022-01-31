@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:24:41 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/28 18:11:14 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:29:31 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**sl_read_map(int fd)
 			map = sl_realloc_map((void *)(map), i, i + SL_RLOC_M);
 	}
 	map[i] = NULL;
-	return (sl_realloc_map((void *)(map), i, i));
+	return (map);
 }
 
 void	sl_free_map(void *ptr)
