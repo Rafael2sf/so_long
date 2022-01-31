@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tmp.c                                              :+:      :+:    :+:   */
+/*   tmp_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 16:38:03 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:12:21 by rafernan         ###   ########.fr       */
+/*   Created: 2022/01/31 18:09:11 by rafernan          #+#    #+#             */
+/*   Updated: 2022/01/31 18:13:00 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
 
 void
 	sl_print_map(const char **map)
@@ -30,10 +30,23 @@ void
 void
 	sl_show_stats(t_app *app)
 {
+	unsigned int	i;
+	
+	i = 0;
 	printf("map: {\n\tdata: \n");
 	sl_print_map((const char **)app->map.data);
 	printf(",\n\twidth: %u,\n\theight: %u,\n\titems: %u\n}\n",
 		app->map.width, app->map.height, app->map.items);
 	printf("player: {\n\tsteps: %u,\n\titems: %u, \n\tx: %u,\n\ty: %u\n}\n",
 		app->ply.steps, app->ply.items, app->ply.pos_x, app->ply.pos_y);
+	if (app->npc)	
+	{
+		printf("npcs: {\n");
+		while (app->npc[i].pos_y > 0)
+		{
+			printf("\t%d.\ty: %d, x: %d\n", i, app->npc[i].pos_y, app->npc[i].pos_x);
+			i++;
+		}
+		printf("}\n");
+	}
 }

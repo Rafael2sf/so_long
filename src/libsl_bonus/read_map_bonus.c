@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:24:41 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:15:19 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:14:04 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
 
 static char
 	**sl_realloc_map(void *ptr, int cur_len, int new_len);

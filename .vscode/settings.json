@@ -11,6 +11,8 @@
 		"initializer_list": "c",
 		"iterator": "c",
 		"unordered_map": "c",
-		"utility": "c"
+		"utility": "c",
+		"stdio.h": "c",
+		"libsl_bonus.h": "c"
 	}
 }

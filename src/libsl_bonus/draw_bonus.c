@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 16:47:04 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:14:11 by rafernan         ###   ########.fr       */
+/*   Created: 2022/01/31 14:54:12 by rafernan          #+#    #+#             */
+/*   Updated: 2022/01/31 18:06:00 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
+
+static int
+	sl_diff(int a, int b, int diff);
 
 static void
 	sl_put_texture(t_app *app, int x, int y);
@@ -27,7 +30,9 @@ void
 		x = 0;
 		while (x < app->map.width)
 		{
-			sl_put_texture(app, x, y);
+			if (sl_diff(app->ply.pos_x, x, SL_VIEW_DEPTH) 
+			&& sl_diff(app->ply.pos_y, y, SL_VIEW_DEPTH))
+				sl_put_texture(app, x, y);
 			x++;
 		}
 		y++;
@@ -57,4 +62,14 @@ static void
 		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
 			app->tts[SL_TT_EXIT].ptr,
 			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
+	else if (app->map.data[y][x] == 'N')
+		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
+			app->tts[SL_TT_NPC].ptr,
+			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
+}
+
+static int
+	sl_diff(int a, int b, int diff)
+{
+	return (diff <= 0 || ((a - b) <= diff && -(a - b) <= diff));
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 17:54:34 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:07:50 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl/libsl.h"
+#include "libsl_bonus/libsl_bonus.h"
 
 static int
 	sl_verify_params(int argc, char **argv);
@@ -31,7 +31,17 @@ int
 	mlx_key_hook(app.mlx.win, sl_keybinds, &app);
 	mlx_hook(app.mlx.win, ON_DESTROY, 0L, sl_destroy_app, &app);
 	sl_drawp_map(&app);
+	sl_put_data(&app);
+	//mlx_loop_hook(app.mlx.ptr, test_this, &app);
+	sl_show_stats(&app);
 	mlx_loop(app.mlx.ptr);
+	return (0);
+}
+
+static int
+	sl_destroy_app(void *app)
+{
+	sl_exitm(0, NULL, app);
 	return (0);
 }
 
@@ -66,9 +76,10 @@ static void
 	(app->tts) = NULL;
 	(app->mlx.ptr) = NULL;
 	(app->mlx.win) = NULL;
-	(app->map.items) = 0;
 	(app->ply.items) = 0;
 	(app->ply.steps) = 0;
+	(app->map.items) = 0;
+	(app->map.npcs) = 0;
 	(app->map.data) = sl_read_map(fd);
 	sl_parse_map(app);
 	(app->mlx.ptr) = mlx_init();
@@ -79,11 +90,5 @@ static void
 	if ((app->mlx.win) == NULL)
 		sl_exitm(3, "Mlx library error\n", app);
 	sl_parse_textures(app);
-}
-
-static int
-	sl_destroy_app(void *app)
-{
-	sl_exitm(0, NULL, app);
-	return (0);
+	sl_init_npcs(app);
 }

@@ -12,7 +12,7 @@
 
 ############# STATIC LIBRARY ############
 
-NAME	=		libsl.a
+NAME	=		libsl_bonus.a
 
 ################### TERMINAL ############
 
@@ -43,14 +43,17 @@ CF		=		-g -Wall -Werror -Wextra
 ################### FILES ###############
 
 SRCS_	=		\
-				draw.c \
-				move.c \
-				parse_map.c \
-				parse_tt.c \
-				read_map.c \
-				keybinds.c \
-				tmp.c \
-				utils.c
+				draw_bonus.c \
+				init_npc_bonus.c \
+				keybinds_bonus.c \
+				libsl_bonus.h \
+				move_bonus.c \
+				parse_map_bonus.c \
+				parse_tt_bonus.c \
+				put_text_bonus.c \
+				read_map_bonus.c \
+				tmp_bonus.c \
+				utils_bonus.c
 
 SRCS	=		$(addprefix $(_SRC), $(SRCS_))
 OBJS	=		$(patsubst $(_SRC)%.c,$(_OBJ)%.o,$(SRCS))

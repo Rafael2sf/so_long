@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:59:10 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 16:30:14 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:00:32 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
 
 static void
 	sl_update_player(t_app *app, int y, int x);
@@ -30,6 +30,7 @@ void
 		sl_exitm(0, NULL, app);
 	mlx_clear_window(app->mlx.ptr, app->mlx.win);
 	sl_drawp_map(app);
+	sl_put_data(app);
 }
 
 static void
@@ -53,5 +54,4 @@ static void
 	(app->ply.pos_y) += y;
 	(app->ply.pos_x) += x;
 	(app->ply.steps) += 1;
-	printf("%u\n", (app->ply.steps));
 }

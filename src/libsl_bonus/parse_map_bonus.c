@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   parse_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 14:07:39 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 16:39:43 by rafernan         ###   ########.fr       */
+/*   Created: 2022/01/31 16:40:40 by rafernan          #+#    #+#             */
+/*   Updated: 2022/01/31 18:03:11 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
 
 static void
 	sl_check_tile(t_app *app, unsigned int x, unsigned int y, int *has_exit);
@@ -88,6 +88,8 @@ static void
 		(app->map.items) += 1;
 	else if (app->map.data[y][x] == 'E')
 		(*has_exit) += 1;
+	else if (app->map.data[y][x] == 'N')
+		(app->map.npcs)++;
 	else if (app->map.data[y][x] != '1' && app->map.data[y][x] != '0')
 		sl_exitm(2, "Unknown map tile\n", app);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:04:56 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 15:10:35 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:24:55 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libsl.h"
+#include "libsl_bonus.h"
 
 void
 	sl_exitm(int code, char *error, t_app *app)
@@ -23,6 +23,8 @@ void
 			sl_destroy_tt(app);
 		if (app->mlx.win)
 			mlx_destroy_window(app->mlx.ptr, app->mlx.win);
+		if (app->npc)
+			free(app->npc);
 	}
 	if (code != 0)
 	{
