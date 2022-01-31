@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:24:41 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:15:19 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:19:44 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ char
 	{
 		map[i] = ft_getnl(fd);
 		if (!map[i] && i == 0)
+		{
+			free(map);
 			sl_exitm(1, "Invalid map\n", NULL);
+		}
 		if (!map[i])
 			break ;
 		i++;
