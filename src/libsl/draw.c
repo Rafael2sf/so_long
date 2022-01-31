@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:47:04 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 10:48:00 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/01/31 11:58:10 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	sl_put_texture(t_app *app, int x, int y);
 
 void	sl_drawp_map(t_app *app)
 {
-	uint	x;
-	uint	y;
+	unsigned int	x;
+	unsigned int	y;
 
 	y = 0;
 	while (y < app->map.height)
