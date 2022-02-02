@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:59:10 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 16:30:14 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:57:02 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void
 		sl_update_player(app, +1, 0);
 	else if (keycode == KEY_D)
 		sl_update_player(app, 0, +1);
-	if (app->map.data[app->ply.pos_y][app->ply.pos_x] == 'E')
+	if (app->map.data[app->ply.pos_y][app->ply.pos_x] != 'P')
 		sl_exitm(0, NULL, app);
 	mlx_clear_window(app->mlx.ptr, app->mlx.win);
 	sl_drawp_map(app);

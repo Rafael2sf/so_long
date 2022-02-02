@@ -48,6 +48,7 @@ SRCS_	=		\
 				keybinds_bonus.c \
 				libsl_bonus.h \
 				move_bonus.c \
+				npc_move_bonus.c \
 				parse_map_bonus.c \
 				parse_tt_bonus.c \
 				put_text_bonus.c \

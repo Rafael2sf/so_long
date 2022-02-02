@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:39:17 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:18:10 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:47:07 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int
 	if (!(app->tts))
 		sl_exitm(3, strerror(errno), app);
 	app->tts[SL_TT_WALL] = sl_new_image(app->mlx.ptr,
-			"./content/textures/w.xpm");
+			"./content/textures/man/wall.xpm");
 	app->tts[SL_TT_FLOOR] = sl_new_image(app->mlx.ptr,
-			"./content/textures/f.xpm");
+			"./content/textures/man/floor.xpm");
 	app->tts[SL_TT_PLAYER] = sl_new_image(app->mlx.ptr,
-			"./content/textures/p.xpm");
+			"./content/textures/man/player.xpm");
 	app->tts[SL_TT_ITEM] = sl_new_image(app->mlx.ptr,
-			"./content/textures/i.xpm");
+			"./content/textures/man/item.xpm");
 	app->tts[SL_TT_EXIT] = sl_new_image(app->mlx.ptr,
-			"./content/textures/e.xpm");
+			"./content/textures/man/exit.xpm");
 	i = 0;
 	while (i < SL_TT_COUNT)
 	{

@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 17:54:34 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:55:34 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int
 	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
 	{
 		ft_putstr(STDERR_FILENO, "Error\nUnknown map file format\n");
-		exit(1);	
+		exit(1);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)

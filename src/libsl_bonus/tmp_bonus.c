@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 18:09:11 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:13:00 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:54:59 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void
 	sl_show_stats(t_app *app)
 {
 	unsigned int	i;
-	
+
 	i = 0;
 	printf("map: {\n\tdata: \n");
 	sl_print_map((const char **)app->map.data);
@@ -39,12 +39,13 @@ void
 		app->map.width, app->map.height, app->map.items);
 	printf("player: {\n\tsteps: %u,\n\titems: %u, \n\tx: %u,\n\ty: %u\n}\n",
 		app->ply.steps, app->ply.items, app->ply.pos_x, app->ply.pos_y);
-	if (app->npc)	
+	if (app->npc)
 	{
 		printf("npcs: {\n");
 		while (app->npc[i].pos_y > 0)
 		{
-			printf("\t%d.\ty: %d, x: %d\n", i, app->npc[i].pos_y, app->npc[i].pos_x);
+			printf("\t%d.\ty: %d, x: %d\n",
+				i, app->npc[i].pos_y, app->npc[i].pos_x);
 			i++;
 		}
 		printf("}\n");

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBSL_H
-# define LIBSL_H
+#ifndef LIBSL_BONUS_H
+# define LIBSL_BONUS_H
 
 # include "../libft/libft.h"
 # include <mlx.h>
@@ -24,7 +24,13 @@
 // Realloc multiplier for map reading 
 # define SL_RLOC_M 5
 // Ammount of visible tiles
-# define SL_VIEW_DEPTH 2
+# ifndef VIEW_DEPTH
+#  define VIEW_DEPTH 50
+# endif
+// Delay between  movement
+# ifndef DELAY
+#  define DELAY 2000
+# endif
 
 /* Properties of app map */
 typedef struct s_map
@@ -60,6 +66,7 @@ typedef struct s_ply
 {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
+	unsigned int	rot;
 	unsigned int	steps;
 	unsigned int	items;
 }					t_ply;
@@ -69,6 +76,7 @@ typedef struct s_npc
 {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
+	char			last_tile;
 }					t_npc;
 
 /* App properties and variables */
@@ -84,13 +92,14 @@ typedef struct s_app
 /* Texture properties */
 # define SL_TT_WIDTH 50
 # define SL_TT_HEIGHT 50
-# define SL_TT_COUNT 5
+# define SL_TT_COUNT 7
 
 enum
 {
 	SL_TT_WALL,
 	SL_TT_FLOOR,
-	SL_TT_PLAYER,
+	SL_TT_PLAYER_L,
+	SL_TT_PLAYER_R,
 	SL_TT_ITEM,
 	SL_TT_EXIT,
 	SL_TT_NPC
@@ -163,6 +172,9 @@ int
 /* Player moves */
 void
 	sl_move(t_app *app, int keycode);
+/* Update bot */
+int	
+	sl_npc_move(t_app *app);
 
 /* TO DELETE */
 void

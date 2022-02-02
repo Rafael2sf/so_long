@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:47:04 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:14:11 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:53:59 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void
 	sl_put_texture(t_app *app, int x, int y);
-	
+
 void
 	sl_drawp_map(t_app *app)
 {

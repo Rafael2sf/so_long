@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:54:12 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:06:00 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:46:33 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 static int
 	sl_diff(int a, int b, int diff);
-
 static void
-	sl_put_texture(t_app *app, int x, int y);
-	
+	sl_put_texture(t_app *app, unsigned int x, unsigned int y);
+static void
+	sl_draw_player(t_app *app, unsigned int x, unsigned int y);	
+
 void
 	sl_drawp_map(t_app *app)
 {
@@ -30,17 +31,18 @@ void
 		x = 0;
 		while (x < app->map.width)
 		{
-			if (sl_diff(app->ply.pos_x, x, SL_VIEW_DEPTH) 
-			&& sl_diff(app->ply.pos_y, y, SL_VIEW_DEPTH))
+			if (sl_diff(app->ply.pos_x, x, VIEW_DEPTH)
+				&& sl_diff(app->ply.pos_y, y, VIEW_DEPTH))
 				sl_put_texture(app, x, y);
 			x++;
 		}
 		y++;
 	}
+	sl_put_data(app);
 }
 
 static void
-	sl_put_texture(t_app *app, int x, int y)
+	sl_put_texture(t_app *app, unsigned int x, unsigned int y)
 {
 	if (app->map.data[y][x] == '1')
 		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
@@ -51,9 +53,7 @@ static void
 			app->tts[SL_TT_FLOOR].ptr,
 			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
 	else if (app->map.data[y][x] == 'P')
-		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
-			app->tts[SL_TT_PLAYER].ptr,
-			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
+		sl_draw_player(app, x, y);
 	else if (app->map.data[y][x] == 'C')
 		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
 			app->tts[SL_TT_ITEM].ptr,
@@ -72,4 +72,17 @@ static int
 	sl_diff(int a, int b, int diff)
 {
 	return (diff <= 0 || ((a - b) <= diff && -(a - b) <= diff));
+}
+
+static void
+	sl_draw_player(t_app *app, unsigned int x, unsigned int y)
+{
+	if ((app->ply.rot) == 0)
+		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
+			app->tts[SL_TT_PLAYER_R].ptr,
+			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
+	else
+		mlx_put_image_to_window(app->mlx.ptr, app->mlx.win,
+			app->tts[SL_TT_PLAYER_L].ptr,
+			x * SL_TT_WIDTH, y * SL_TT_HEIGHT);
 }

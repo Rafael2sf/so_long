@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:07:50 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/02 16:54:33 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int
 	mlx_hook(app.mlx.win, ON_DESTROY, 0L, sl_destroy_app, &app);
 	sl_drawp_map(&app);
 	sl_put_data(&app);
-	//mlx_loop_hook(app.mlx.ptr, test_this, &app);
-	sl_show_stats(&app);
+	mlx_loop_hook(app.mlx.ptr, sl_npc_move, &app);
 	mlx_loop(app.mlx.ptr);
 	return (0);
 }
@@ -58,7 +57,7 @@ static int
 	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
 	{
 		ft_putstr(STDERR_FILENO, "Error\nUnknown map file format\n");
-		exit(1);	
+		exit(1);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
@@ -78,6 +77,7 @@ static void
 	(app->mlx.win) = NULL;
 	(app->ply.items) = 0;
 	(app->ply.steps) = 0;
+	(app->ply.rot) = 0;
 	(app->map.items) = 0;
 	(app->map.npcs) = 0;
 	(app->map.data) = sl_read_map(fd);
