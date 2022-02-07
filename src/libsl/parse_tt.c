@@ -6,14 +6,13 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:39:17 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 15:47:07 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 12:02:10 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-int
-	sl_parse_textures(t_app *app)
+int	sl_parse_textures(t_app *app)
 {
 	int	i;
 
@@ -40,8 +39,7 @@ int
 	return (0);
 }
 
-void
-	sl_destroy_tt(t_app *app)
+void	sl_destroy_tt(t_app *app)
 {
 	int	i;
 

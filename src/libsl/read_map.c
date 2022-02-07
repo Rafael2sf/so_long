@@ -6,21 +6,19 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:24:41 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:19:44 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:35:25 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-static char
-	**sl_realloc_map(void *ptr, int cur_len, int new_len);
+static char	**sl_realloc_map(void *ptr, int cur_len, int new_len);
 
 /* 
 	Reads the map line by line, allocates SL_RLOC_M bytes,
 	if map is bigger, then reallocates more SL_ROC_M  bytes
 */
-char
-	**sl_read_map(int fd)
+char	**sl_read_map(int fd)
 {
 	char	**map;
 	int		i;
@@ -47,8 +45,7 @@ char
 	return (map);
 }
 
-void
-	sl_free_map(void *ptr)
+void	sl_free_map(void *ptr)
 {
 	void	**map;
 	int		i;
@@ -66,8 +63,7 @@ void
 	ptr = NULL;
 }
 
-static char
-	**sl_realloc_map(void *ptr, int cur_len, int new_len)
+static char	**sl_realloc_map(void *ptr, int cur_len, int new_len)
 {
 	char	**new;
 	int		i;

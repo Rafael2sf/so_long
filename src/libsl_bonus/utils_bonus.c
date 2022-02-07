@@ -6,14 +6,13 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:04:56 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/01 15:17:41 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:30:23 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-void
-	sl_exitm(int code, char *error, t_app *app)
+void	sl_exitm(int code, char *error, t_app *app)
 {
 	if (app)
 	{
@@ -34,8 +33,7 @@ void
 	exit(code);
 }
 
-t_img
-	sl_new_image(void *mlx, char *path)
+t_img	sl_new_image(void *mlx, char *path)
 {
 	t_img	img;
 

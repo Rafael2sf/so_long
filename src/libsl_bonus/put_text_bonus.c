@@ -6,19 +6,16 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:13:28 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 16:53:52 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:30:34 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-static void
-	sl_put_items(t_app *app, char **ptr);
-static int
-	sl_items_color(t_app *app);
+static void	sl_put_items(t_app *app, char **ptr);
+static int	sl_items_color(t_app *app);
 
-void
-	sl_put_data(t_app *app)
+void	sl_put_data(t_app *app)
 {
 	char	*ptr[2];
 	char	*steps;
@@ -41,8 +38,7 @@ void
 	sl_put_items(app, (char **)ptr);
 }
 
-static void
-	sl_put_items(t_app *app, char **ptr)
+static void	sl_put_items(t_app *app, char **ptr)
 {
 	size_t	len[2];
 	char	*txt;
@@ -66,8 +62,7 @@ static void
 	free(txt);
 }
 
-static int
-	sl_items_color(t_app *app)
+static int	sl_items_color(t_app *app)
 {
 	if (app->map.items == app->ply.items)
 		return (0x007FFF00);

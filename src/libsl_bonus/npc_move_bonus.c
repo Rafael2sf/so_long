@@ -6,17 +6,15 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:45:52 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 16:56:48 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:31:11 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-static void
-	sl_npc_up(t_app *app, int i);
+static void	sl_npc_up(t_app *app, int i);
 
-int
-	sl_npc_move(t_app *app)
+int	sl_npc_move(t_app *app)
 {
 	static int	delay;
 	int			i;
@@ -36,8 +34,7 @@ int
 	return (1);
 }
 
-static void
-	sl_npc_up(t_app *app, int i)
+static void	sl_npc_up(t_app *app, int i)
 {
 	if ((app->map.data[app->npc[i].pos_y - 1][app->npc[i].pos_x]) == '1')
 	{

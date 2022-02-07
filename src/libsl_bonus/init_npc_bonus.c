@@ -6,17 +6,15 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:38:29 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 16:54:43 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:33:05 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-static void
-	sl_map_npcs(t_app *app, unsigned int *i);
+static void	sl_map_npcs(t_app *app, unsigned int *i);
 
-void
-	sl_init_npcs(t_app *app)
+void	sl_init_npcs(t_app *app)
 {
 	unsigned int	i;
 
@@ -35,8 +33,7 @@ void
 	app->npc[i].pos_y = 0;
 }
 
-static void
-	sl_map_npcs(t_app *app, unsigned int *i)
+static void	sl_map_npcs(t_app *app, unsigned int *i)
 {
 	unsigned int	x;
 	unsigned int	y;

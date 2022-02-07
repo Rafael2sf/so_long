@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:40:40 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/01 14:10:00 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:34:04 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 static void
 	sl_check_tile(t_app *app, unsigned int x, unsigned int y, int *has_exit);
-static void
-	sl_check_format(t_app *app);
+static void	sl_check_format(t_app *app);
 
-void
-	sl_parse_map(t_app *app)
+void	sl_parse_map(t_app *app)
 {
 	unsigned int	y;
 	unsigned int	x;
@@ -45,8 +43,7 @@ void
 		sl_exitm(2, "Map does not contain collectables\n", app);
 }
 
-static void
-	sl_check_format(t_app *app)
+static void	sl_check_format(t_app *app)
 {
 	unsigned int	y;
 	unsigned int	len;

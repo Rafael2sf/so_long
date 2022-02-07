@@ -6,17 +6,15 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:46:00 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 16:24:36 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:30:50 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-static void
-	sl_get_textures(t_app *app);
+static void	sl_get_textures(t_app *app);
 
-int
-	sl_parse_textures(t_app *app)
+int	sl_parse_textures(t_app *app)
 {
 	int	i;
 
@@ -34,8 +32,7 @@ int
 	return (0);
 }
 
-void
-	sl_destroy_tt(t_app *app)
+void	sl_destroy_tt(t_app *app)
 {
 	int	i;
 
@@ -50,8 +47,7 @@ void
 	(app->tts) = NULL;
 }
 
-static void
-	sl_get_textures(t_app *app)
+static void	sl_get_textures(t_app *app)
 {
 	app->tts[SL_TT_WALL] = sl_new_image(app->mlx.ptr,
 			"./content/textures/bonus/wall.xpm");

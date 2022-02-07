@@ -6,21 +6,17 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:06:13 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 16:55:34 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:34:35 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl/libsl.h"
 
-static int
-	sl_verify_params(int argc, char **argv);
-static void
-	sl_init_app(t_app *app, int fd);
-static int
-	sl_destroy_app(void *app);
+static int	sl_verify_params(int argc, char **argv);
+static void	sl_init_app(t_app *app, int fd);
+static int	sl_destroy_app(void *app);
 
-int
-	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_app	app;
 	int		fd;
@@ -35,8 +31,7 @@ int
 	return (0);
 }
 
-static int
-	sl_verify_params(int argc, char **argv)
+static int	sl_verify_params(int argc, char **argv)
 {
 	int		fd;
 
@@ -60,8 +55,7 @@ static int
 	return (fd);
 }
 
-static void
-	sl_init_app(t_app *app, int fd)
+static void	sl_init_app(t_app *app, int fd)
 {
 	(app->tts) = NULL;
 	(app->mlx.ptr) = NULL;

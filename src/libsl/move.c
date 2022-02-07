@@ -6,17 +6,15 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:59:10 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/02 13:57:02 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:34:58 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-static void
-	sl_update_player(t_app *app, int y, int x);
+static void	sl_update_player(t_app *app, int y, int x);
 
-void
-	sl_move(t_app *app, int keycode)
+void	sl_move(t_app *app, int keycode)
 {
 	if (keycode == KEY_W)
 		sl_update_player(app, -1, 0);
@@ -32,8 +30,7 @@ void
 	sl_drawp_map(app);
 }
 
-static void
-	sl_update_player(t_app *app, int y, int x)
+static void	sl_update_player(t_app *app, int y, int x)
 {
 	if (app->map.data[app->ply.pos_y + y][app->ply.pos_x + x] == '1')
 		return ;

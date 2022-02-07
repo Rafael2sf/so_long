@@ -6,14 +6,13 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:38:03 by rafernan          #+#    #+#             */
-/*   Updated: 2022/01/31 18:12:21 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:35:30 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl.h"
 
-void
-	sl_print_map(const char **map)
+void	sl_print_map(const char **map)
 {
 	int	i;
 
@@ -27,8 +26,7 @@ void
 	}
 }
 
-void
-	sl_show_stats(t_app *app)
+void	sl_show_stats(t_app *app)
 {
 	printf("map: {\n\tdata: \n");
 	sl_print_map((const char **)app->map.data);
