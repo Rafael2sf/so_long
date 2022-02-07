@@ -53,7 +53,6 @@ SRCS_	=		\
 				parse_tt_bonus.c \
 				put_text_bonus.c \
 				read_map_bonus.c \
-				tmp_bonus.c \
 				utils_bonus.c
 
 SRCS	=		$(addprefix $(_SRC), $(SRCS_))

@@ -82,6 +82,11 @@ enum
 	SL_TT_ITEM,
 	SL_TT_EXIT
 };
+# define SL_TT_WALL_P "./content/textures/man/wall.xpm"
+# define SL_TT_FLOOR_P "./content/textures/man/floor.xpm"
+# define SL_TT_PLAYER_P "./content/textures/man/player.xpm"
+# define SL_TT_ITEM_P "./content/textures/man/item.xpm"
+# define SL_TT_EXIT_P "./content/textures/man/exit.xpm"
 
 /* Mapping keys */
 enum
@@ -102,53 +107,35 @@ enum
 /* Reads map from a file */
 char
 	**sl_read_map(int fd);
-
 /* Verify if map is valid */
 void
 	sl_parse_map(t_app *app);
-
 /* Free the map */
 void
 	sl_free_map(void *ptr);
-
 /* Exit program clearing memory */
 void
 	sl_exitm(int code, char *error, t_app *app);
-
 /* New image form path */
 t_img
 	sl_new_image(void *mlx, char *path);
-
 /* Loads in the textures */
 int	
 	sl_parse_textures(t_app *app);
-
 /* List of textures is cleared */
 void
 	sl_destroy_tt(t_app *app);
-
 /* Set hooks */
 int	
 	sl_keybinds(int keycode, t_app *app);
-
 /* Draw map */
 void
 	sl_drawp_map(t_app *app);
-
 /* if pressed moving key */
 int	
 	sl_ismove(int key);
-
 /* Player moves */
 void
 	sl_move(t_app *app, int keycode);
-
-/* TO DELETE */
-void
-	sl_show_stats(t_app *app);
-
-/* Prints map to stdout */
-void
-	sl_print_map(const char **map);
 
 #endif

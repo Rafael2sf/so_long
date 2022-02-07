@@ -6,13 +6,12 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:54:12 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/07 16:32:52 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:37:43 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libsl_bonus.h"
 
-static int	sl_diff(int a, int b, int diff);
 static void	sl_put_texture(t_app *app, unsigned int x, unsigned int y);
 static void	sl_draw_player(t_app *app, unsigned int x, unsigned int y);	
 

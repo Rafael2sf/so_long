@@ -49,7 +49,6 @@ SRCS_	=		\
 				parse_tt.c \
 				read_map.c \
 				keybinds.c \
-				tmp.c \
 				utils.c
 
 SRCS	=		$(addprefix $(_SRC), $(SRCS_))

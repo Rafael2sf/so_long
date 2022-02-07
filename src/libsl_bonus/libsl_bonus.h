@@ -100,6 +100,13 @@ enum
 	SL_TT_EXIT,
 	SL_TT_NPC
 };
+# define SL_TT_WALL_P "./content/textures/bonus/wall.xpm"
+# define SL_TT_FLOOR_P "./content/textures/bonus/floor.xpm"
+# define SL_TT_PLAYER_L_P "./content/textures/bonus/player_l.xpm"
+# define SL_TT_PLAYER_R_P "./content/textures/bonus/player_r.xpm"
+# define SL_TT_ITEM_P "./content/textures/bonus/item.xpm"
+# define SL_TT_EXIT_P "./content/textures/bonus/exit.xpm"
+# define SL_TT_NPC_P "./content/textures/bonus/npc.xpm"
 
 /* Mapping keys */
 enum
@@ -119,49 +126,31 @@ enum
 
 /* Reads map from a file */
 char		**sl_read_map(int fd);
-
 /* Verify if map is valid */
 void		sl_parse_map(t_app *app);
-
 /* Free the map */
 void		sl_free_map(void *ptr);
-
 /* Exit program clearing memory */
 void		sl_exitm(int code, char *error, t_app *app);
-
 /* New image form path */
 t_img		sl_new_image(void *mlx, char *path);
-
 /* Loads in the textures */
 int			sl_parse_textures(t_app *app);
-
 /* Initialise npc array */
 void		sl_init_npcs(t_app *app);
-
 /* List of textures is cleared */
 void		sl_destroy_tt(t_app *app);
-
 /* Set hooks */
 int			sl_keybinds(int keycode, t_app *app);
-
 /* Draw map */
 void		sl_drawp_map(t_app *app);
-
 /* Writes ascii text info to window */
 void		sl_put_data(t_app *app);
-
 /* if pressed moving key */
 int			sl_ismove(int key);
-
 /* Player moves */
 void		sl_move(t_app *app, int keycode);
 /* Update bot */
 int			sl_npc_move(t_app *app);
-
-/* TO DELETE */
-void		sl_show_stats(t_app *app);
-
-/* Prints map to stdout */
-void		sl_print_map(const char **map);
 
 #endif

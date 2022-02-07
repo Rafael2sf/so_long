@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 16:46:00 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/07 16:30:50 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:47:54 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,11 @@ void	sl_destroy_tt(t_app *app)
 
 static void	sl_get_textures(t_app *app)
 {
-	app->tts[SL_TT_WALL] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/wall.xpm");
-	app->tts[SL_TT_FLOOR] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/floor.xpm");
-	app->tts[SL_TT_PLAYER_L] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/player_l.xpm");
-	app->tts[SL_TT_PLAYER_R] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/player_r.xpm");
-	app->tts[SL_TT_ITEM] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/item.xpm");
-	app->tts[SL_TT_EXIT] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/exit.xpm");
-	app->tts[SL_TT_NPC] = sl_new_image(app->mlx.ptr,
-			"./content/textures/bonus/npc.xpm");
+	app->tts[SL_TT_WALL] = sl_new_image(app->mlx.ptr, SL_TT_WALL_P);
+	app->tts[SL_TT_FLOOR] = sl_new_image(app->mlx.ptr, SL_TT_FLOOR_P);
+	app->tts[SL_TT_PLAYER_L] = sl_new_image(app->mlx.ptr, SL_TT_PLAYER_L_P);
+	app->tts[SL_TT_PLAYER_R] = sl_new_image(app->mlx.ptr, SL_TT_PLAYER_R_P);
+	app->tts[SL_TT_ITEM] = sl_new_image(app->mlx.ptr, SL_TT_ITEM_P);
+	app->tts[SL_TT_EXIT] = sl_new_image(app->mlx.ptr, SL_TT_EXIT_P);
+	app->tts[SL_TT_NPC] = sl_new_image(app->mlx.ptr, SL_TT_NPC_P);
 }
