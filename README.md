@@ -8,7 +8,7 @@ This project is a very small 2D game. Its purpose is to make you work with textu
 
 ### Requires:
   MacOs 
-  Minilibix
+  Mlx
 
 ## ℹ️ Usage
 
