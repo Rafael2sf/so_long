@@ -38,7 +38,7 @@ _BIN	=		./
 ############### COMPILER ################
 
 CC		=		gcc
-CF		=		-g -Wall -Werror -Wextra
+CF		=		-Wall -Werror -Wextra
 FW		=		-framework OpenGL -framework AppKit
 
 ################ FILES ##################

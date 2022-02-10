@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 14:07:39 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/07 16:37:19 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:39:41 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,13 @@ static void
 	}
 	else if (app->map.data[y][x] == 'P')
 	{
-		if (app->ply.pos_x != 0)
-			sl_exitm(2, "More then one player spawn provided\n", app);
-		(app->ply.pos_x) = x;
-		(app->ply.pos_y) = y;
+		if (app->ply.pos_x == 0)
+		{
+			(app->ply.pos_x) = x;
+			(app->ply.pos_y) = y;
+		}
+		else
+			(app->map.data[y][x] = '0');
 	}
 	else if (app->map.data[y][x] == 'C')
 		(app->map.items) += 1;

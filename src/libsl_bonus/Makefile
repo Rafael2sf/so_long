@@ -38,7 +38,7 @@ _LIB	=		../../libs/
 
 CC		=		gcc
 AR		=		ar rcs
-CF		=		-g -Wall -Werror -Wextra
+CF		=		-Wall -Werror -Wextra
 
 ################### FILES ###############
 

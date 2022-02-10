@@ -6,7 +6,7 @@
 /*   By: rafernan <rafernan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:59:10 by rafernan          #+#    #+#             */
-/*   Updated: 2022/02/07 16:34:58 by rafernan         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:20:32 by rafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ static void	sl_update_player(t_app *app, int y, int x)
 	(app->ply.pos_y) += y;
 	(app->ply.pos_x) += x;
 	(app->ply.steps) += 1;
-	printf("%u\n", (app->ply.steps));
+	ft_printf("%u\n", (app->ply.steps));
 }
