@@ -1,4 +1,5 @@
 # SO_LONG
+✅ Finished.
 
 @42 Lisbon
 
@@ -6,9 +7,10 @@
 
 This project is a very small 2D game. Its purpose is to make you work with textures, sprites,and some other very basic gameplay elements.
 
-### Requires:
-  MacOs 
-  Mlx
+# 💻 Compatibility
+MacOS with    
+OpenGL & Appkit framework   
+Minilibx (macOS binary) https://github.com/42Paris/minilibx-linux 
 
 ## ℹ️ Usage
 
@@ -26,6 +28,10 @@ make so_long
 
 ~~~c
 make bonus
+~~~
+
+~~~shell
+./so_long <map_file>
 ~~~
 
 </br>
